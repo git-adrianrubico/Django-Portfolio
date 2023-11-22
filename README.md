@@ -188,7 +188,6 @@ Utilize `os.environ.get("")` to store API keys, configuration values, and secret
     ```
 
 5. **Configure Build Settings**:
-<br>
 Configure the build settings to match your Django project's requirements. Define the build command, environment variables, and any other settings necessary for your application.
 <br>
 ![Imge3](/Django-Portfolio/Deployment%20Screenshots/image-3.png)
@@ -203,6 +202,7 @@ You may follow here the youtube guide on how to setup Cloudinary & Google Django
 <br>[Deploy static files to Cloudinary from a Django app](https://www.youtube.com/watch?v=HQ1kfJpWdRI)
 <br>
 [CAPTCHAs in Django forms](https://www.youtube.com/watch?v=QGz_CczcL3Q&t=3s)
+
 6. **Optional Postgres Database Setup**:
 If you choose to deploy with a Postgres database, import dj_database_url in your settings file. Configure the database settings as follows:
     ```python
@@ -216,7 +216,7 @@ If you choose to deploy with a Postgres database, import dj_database_url in your
     database_url = os.environ.get("DATABASE_URL")
     DATABASES["default"] = dj_database_url.parse(database_url, conn_max_age=600)
     ```
-    
+    <br>
     Here is the guide <a href="https://youtu.be/AgTr5mw4zdI?t=929&si=siE8yPqA5ilPcKPJ">Deploy a Django web app to a Render live server with PostgreSQL</a>
     
 
