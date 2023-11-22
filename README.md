@@ -125,8 +125,8 @@ Start by creating an account on Render.com. Provide the necessary details to set
 
 2. **Initialize Web Service & Select "Build and Deploy from a Git Repository"**:
 In the web service settings, choose "Build and Deploy from a Git Repository" as your deployment method. This option streamlines the process by connecting your portfolio directly to your Git repository.
-![Web Service](/Django-Portfolio/Deployment%20Screenshots/image.png)
-![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-1.png)
+![Web Service](</Deployment Screenshots/image.png>)
+![Alt text](</Deployment Screenshots/image-1.png>)
 
 3. **Connect Your Git Repository**:
 Specify the repository where your Django portfolio is hosted. Connect Render to your Git account, allowing it to fetch the latest updates and changes from your repository.
@@ -184,9 +184,9 @@ cloudinary.config(
 
 5. **Configure Build Settings**:
 Configure the build settings to match your Django project's requirements. Define the build command, environment variables, and any other settings necessary for your application.
-![Imge3](/Django-Portfolio/Deployment%20Screenshots/image-3.png)
-![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-4.png)
-![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-5.png)
+![Alt text](</Deployment Screenshots/image-3.png>)
+![Alt text](</Deployment Screenshots/image-4.png>)
+![Alt text](</Deployment Screenshots/image-5.png>)
 
 **Note: You may include here SECRET KEY, EMAIL SNMP VARIABLE, GOOGLE RECAPTCHA KEYS, CLOUDINARY STATIC AND IMAGES (Optional: This is for fast content delivery network (CDN))**
 
