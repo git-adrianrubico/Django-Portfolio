@@ -216,8 +216,9 @@ If you choose to deploy with a Postgres database, import dj_database_url in your
     database_url = os.environ.get("DATABASE_URL")
     DATABASES["default"] = dj_database_url.parse(database_url, conn_max_age=600)
     ```
-    <br>
+    
     Here is the guide <a href="https://youtu.be/AgTr5mw4zdI?t=929&si=siE8yPqA5ilPcKPJ">Deploy a Django web app to a Render live server with PostgreSQL</a>
+    
 
 ## Credits
 - Template Design: https://github.com/bkpecho/v1/
