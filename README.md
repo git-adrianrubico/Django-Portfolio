@@ -121,103 +121,96 @@ Primary Modules used
 Elevate your Django portfolio from local development to a global stage through the deployment process. You can deploy any infrastructure as long as it can run Python application. It could be cloud-based server like AWS/Azure, or it could be PaaS Heroku, Render, & Vercel etc. In this project, we've opted for **[Render](https://render.com/)** as the hosting platform, guaranteeing a seamless and scalable environment. Here are the following Steps on how to deploy in the Render.
 
 1. **Create an Account on Render**:
-<br>
 Start by creating an account on Render.com. Provide the necessary details to set up your account and log in to the Render dashboard.
 
 2. **Initialize Web Service & Select "Build and Deploy from a Git Repository"**:
-<br>
 In the web service settings, choose "Build and Deploy from a Git Repository" as your deployment method. This option streamlines the process by connecting your portfolio directly to your Git repository.
-<br>
 ![Web Service](/Django-Portfolio/Deployment%20Screenshots/image.png)
 ![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-1.png)
 
 3. **Connect Your Git Repository**:
-<br>
 Specify the repository where your Django portfolio is hosted. Connect Render to your Git account, allowing it to fetch the latest updates and changes from your repository.
 
 4. **Use Environment Variables for Configuration**:
-<br>
 Utilize `os.environ.get("")` to store API keys, configuration values, and secrets securely. Access these variables in your code using `os.getenv()` in Python, ensuring sensitive information remains confidential.
-    ```python
-    # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+```python
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
-    EMAILHOST_USER = os.environ.get("EMAIL_HOST_USER")
-    EMAILHOST_PASSWD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAILHOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAILHOST_PASSWD = os.environ.get("EMAIL_HOST_PASSWORD")
 
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    EMAIL_HOST_USER = EMAILHOST_USER
-    EMAIL_HOST_PASSWORD = EMAILHOST_PASSWD
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = EMAILHOST_USER
+EMAIL_HOST_PASSWORD = EMAILHOST_PASSWD
 
-    if DEBUG is False:
-        STATICFILES_DIRS = [ BASE_DIR / 'static' ]
-        STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-        
-    else:
-        STATICFILES_DIRS = [
-            os.path.join(BASE_DIR, 'static'),
-        ]
-        STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+if DEBUG is False:
+    STATICFILES_DIRS = [ BASE_DIR / 'static' ]
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    
+else:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-    RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
-    RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 
-    CLOUDINARY_CLOUDNAME = os.environ.get("CLOUD_NAME")
-    CLOUDINARY_APIKEY = os.environ.get("CLOUD_API_KEY")
-    CLOUDINARY_SECRET = os.environ.get("CLOUD_API_SECRET")
+CLOUDINARY_CLOUDNAME = os.environ.get("CLOUD_NAME")
+CLOUDINARY_APIKEY = os.environ.get("CLOUD_API_KEY")
+CLOUDINARY_SECRET = os.environ.get("CLOUD_API_SECRET")
 
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': CLOUDINARY_CLOUDNAME,
-        'API_KEY': CLOUDINARY_APIKEY,
-        'API_SECRET': CLOUDINARY_SECRET,
-    }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': CLOUDINARY_CLOUDNAME,
+    'API_KEY': CLOUDINARY_APIKEY,
+    'API_SECRET': CLOUDINARY_SECRET,
+}
 
-    cloudinary.config(
-        cloud_name = CLOUDINARY_CLOUDNAME,
-        api_key = CLOUDINARY_APIKEY,
-        api_secret = CLOUDINARY_SECRET,
-    )
-    ```
+cloudinary.config(
+    cloud_name = CLOUDINARY_CLOUDNAME,
+    api_key = CLOUDINARY_APIKEY,
+    api_secret = CLOUDINARY_SECRET,
+)
+```
 
 5. **Configure Build Settings**:
 Configure the build settings to match your Django project's requirements. Define the build command, environment variables, and any other settings necessary for your application.
-<br>
 ![Imge3](/Django-Portfolio/Deployment%20Screenshots/image-3.png)
 ![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-4.png)
 ![Alt text](/Django-Portfolio/Deployment%20Screenshots/image-5.png)
+
 **Note: You may include here SECRET KEY, EMAIL SNMP VARIABLE, GOOGLE RECAPTCHA KEYS, CLOUDINARY STATIC AND IMAGES (Optional: This is for fast content delivery network (CDN))**
-<br>
-<br>
+
 You may follow here the youtube guide on how to setup Cloudinary & Google Django Recaptcha.
-<br>
-[Host uploaded images from Django with Cloudinary](https://www.youtube.com/watch?v=fQo9ivqX4xs)
-<br>[Deploy static files to Cloudinary from a Django app](https://www.youtube.com/watch?v=HQ1kfJpWdRI)
-<br>
-[CAPTCHAs in Django forms](https://www.youtube.com/watch?v=QGz_CczcL3Q&t=3s)
+
+* [Host uploaded images from Django with Cloudinary](https://www.youtube.com/watch?v=fQo9ivqX4xs)
+* [Deploy static files to Cloudinary from a Django app](https://www.youtube.com/watch?v=HQ1kfJpWdRI)
+* [CAPTCHAs in Django forms](https://www.youtube.com/watch?v=QGz_CczcL3Q&t=3s)
 
 6. **Optional Postgres Database Setup**:
 If you choose to deploy with a Postgres database, import dj_database_url in your settings file. Configure the database settings as follows:
-    ```python
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
+```python
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
+}
 
-    database_url = os.environ.get("DATABASE_URL")
-    DATABASES["default"] = dj_database_url.parse(database_url, conn_max_age=600)
-    ```
-    <br>
-    Here is the guide <a href="https://youtu.be/AgTr5mw4zdI?t=929&si=siE8yPqA5ilPcKPJ">Deploy a Django web app to a Render live server with PostgreSQL</a>
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url, conn_max_age=600)
+```
+
+Here is the guide <a href="https://youtu.be/AgTr5mw4zdI?t=929&si=siE8yPqA5ilPcKPJ">Deploy a Django web app to a Render live server with PostgreSQL</a>
     
 
 ## Credits
