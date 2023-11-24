@@ -214,7 +214,8 @@ Here is the guide <a href="https://youtu.be/AgTr5mw4zdI?t=929&si=siE8yPqA5ilPcKP
     
 
 ## Credits
-- Template Design: https://github.com/bkpecho/v1/
+- Portfolio Template Design: https://github.com/bkpecho/v1/
+- Digital CV Template Design: https://github.com/FrankSiret/resume-cv/
 - Render Setup: https://github.com/cloud-with-django | https://www.youtube.com/@cloudwithdjango
 - Django Recaptcha Setup: https://www.youtube.com/@bugbytes3923
 - Simple Icons: https://cdn.simpleicons.org
